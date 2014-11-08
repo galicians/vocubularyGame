@@ -2,24 +2,10 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('AppCtrl', function($scope, $http) {
+var busuuControllers = angular.module('busuuControllers', []);
 
-    $http({
-      method: 'GET',
-      url: '/api/name'
-    }).
-    success(function(data, status, headers, config) {
-      $scope.name = data.name;
-    }).
-    error(function(data, status, headers, config) {
-      $scope.name = 'Error!'
-    });
+busuuControllers.controller('QuestionDisplayCtrl', ['$scope', 'Phone', function($scope, Session) {
 
-  }).controller('MyCtrl1', function($scope) {
-    // write Ctrl here
+ }]);
 
-  }).controller('MyCtrl2', function($scope) {
-    // write Ctrl here
 
-  });

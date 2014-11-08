@@ -2,16 +2,17 @@
 
 // Declare app level module which depends on filters, and services
 
-angular.module('myApp', [
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
+var busuuApp = angular.module('busuuApp', [
+  'busuuControllers',
+  'busuuFilters',
+  'busuuServices',
+  'busuuDirectives',
   'ngRoute'
-]).config(function($routeProvider, $locationProvider) {
+])
+
+busuuApp.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/home', {
-    templateUrl: 'partials/home.html',
-    controller: 'MyCtrl1'
+    controller: 'QuestionDisplayCtrl'
   }).when('/view2', {
     templateUrl: 'partials/partial2.html',
     controller: 'MyCtrl2'
