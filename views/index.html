@@ -39,19 +39,17 @@
 
       <h3>Welcome {{user}}, we can see you are learning [{{learning}}].</h3>
       <hr/ >
-        <h4>{{round}} question:<h4>
-
+        <h4>{{round}} round:<h4>
+          <br />
         <h4>{{question.def}}</h4>
         <ul>
         <li ng-repeat="answer in answers">
-            <h5>{{answer}}</h5>
+          <label> <input id="{{answer}}" type="checkbox" ng-model="userAnswer"> {{answer}}</label>
           </li>
         </ul>
-      
+      <button ng-click="submit()" ng-disabled="isUnchanged(user)">SUBMIT</button>
 
-
-
-
+  
 
 
   </div>
