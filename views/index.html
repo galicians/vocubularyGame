@@ -39,12 +39,12 @@
 
 
       <ul>
-        <li ng-repeat="(key, word) in words track by key">
-          <span>{{word}}</span>
+        <li ng-repeat="word in session.words">
+          <span>{{word.def}}</span>
         </li>
       </ul>
-
-
+      <hr/ >
+  
 
 
 

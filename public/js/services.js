@@ -8,7 +8,7 @@ var busuuServices = angular.module('busuuServices',[])
 
 busuuServices.factory('Session', [ function() {
 
-  function Session() {
+  function Session(words,questions,roundAnswers,learning,mTongue,user,score,roundPoints) {
     this.words 
     this.questions = []
     this.roundAnswers = []
