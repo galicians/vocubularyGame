@@ -39,12 +39,12 @@
 
 
       <ul>
-        <li ng-repeat="word in words track by $value">
+        <li ng-repeat="(key, word) in words track by key">
           <span>{{word}}</span>
         </li>
       </ul>
 
-  
+
 
 
 
