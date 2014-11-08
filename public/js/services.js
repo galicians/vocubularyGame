@@ -11,8 +11,8 @@ busuuServices.factory('Session', [ '$http', function($http) {
     this.questions = []
     this.roundAnswers = []
     this.learning = lang
-    this.mTongue 
-    this.user
+    this.mTongue ="en"
+    this.user = "user"
     this.score = []
     this.roundPoints
   }
@@ -25,8 +25,6 @@ busuuServices.factory('Session', [ '$http', function($http) {
     })
   }
 
-
-
   Session.prototype._generateRandNumber =  function() {
     var self = this
     var totalWords = self.words.length - 1
@@ -34,57 +32,69 @@ busuuServices.factory('Session', [ '$http', function($http) {
   }
 
   Session.prototype.generateNewQuestion = function() {
-    var randNumber = this._generateRandNumber() 
-    while ( this._isQuestionRepeated(randNumber) ) { randNumber = this._generateRandNumber() }
-    this.questions.push(randNumber) 
+    var self = this
+    var randNumber = self._generateRandNumber() 
+    while ( self._isQuestionRepeated(randNumber) ) { randNumber = self._generateRandNumber() }
+    self.questions.push(randNumber) 
   }
 
   Session.prototype._isQuestionRepeated = function(num) {
-    return this.questions.indexOf(num) !== -1
+     var self = this
+    return self.questions.indexOf(num) !== -1
   }
 
   Session.prototype.currentQuestion = function() {
-    var last = this.questions.length - 1
-    return words[last]
+    var self = this
+    var last = self.questions.length - 1
+    return self.words[last]
   }
 
   Session.prototype.correctResponse = function() {
-    return this.currentQuestion()[this.learning]
+     var self = this
+    return self.currentQuestion()[self.learning]
   }
 
   Session.prototype.isResponseRepeated = function(num) {
-    return this.roundAnswers.indexOf(this.words[num][this.learning]) !== -1
+    var self = this
+    return self.roundAnswers.indexOf(self.words[num][self.learning]) !== -1
   }
 
   Session.prototype.generateFakeAnswer = function() {
-    var randNumber = this._generateRandNumber()
-    while ( this.isResponseRepeated(randNumber) ) { randNumber = this._generateRandNumber() }
-    return this.words[randNumber][this.learning]
+    var self = this
+    var randNumber = self._generateRandNumber()
+    while ( self.isResponseRepeated(randNumber) ) { randNumber = self._generateRandNumber() }
+    return self.words[randNumber][self.learning]
   }
 
   Session.prototype.generateAnswers = function(num) {
-     this.roundAnswers.push(this.correctResponse())
-    for(var i = 0; i < num; i++){ this.roundAnswers.push(this.generateFakeAnswer()) }
+    var self = this
+     self.roundAnswers.push(self.correctResponse())
+    for(var i = 0; i < num; i++){ self.roundAnswers.push(self.generateFakeAnswer()) }
   }
 
   Session.prototype.shuffleAnswers = function(){
-      this.roundAnswers = shuffle(this.roundAnswers)
+    var self = this
+      self.roundAnswers = shuffle(self.roundAnswers)
   }
 
   Session.prototype.currentRound = function() {
-    return this.questions.length
+    var self = this
+    return self.questions.length
   }
 
   Session.prototype.isUserResponseCorrect = function(userAnswer){
-    return userAnswer == this.correctResponse()
+    var self = this
+    return userAnswer == self.correctResponse()
   }
 
   Session.prototype.updateScore = function(userAnswer) {
-    if (this.isUserResponseCorrect(userAnswer)) this.score.push(this.roundPoints)
+    var self = this
+    if (self.isUserResponseCorrect(userAnswer)) self.score.push(self.roundPoints)
   }
 
   Session.prototype.getKeyphrase = function(){
-    return this.currentQuestion().def
+    var self = this
+    return self.currentQuestion().def
   }
 
   function shuffle(array) {

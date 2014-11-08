@@ -37,18 +37,17 @@
 
 
 
-
-      <ul>
-        <li ng-repeat="word in words">
-          <span>{{word}}</span>
-        </li>
-      </ul>
+      <h3>Welcome {{user}}, we can see you are learning [{{learning}}].</h3>
       <hr/ >
-      
+        <h4>{{round}} question:<h4>
 
-      <p>the language is : {{lan}}</p>
-         <hr/ >
-        <p>the number is : {{number}}</p>
+        <h4>{{question.def}}</h4>
+        <ul>
+        <li ng-repeat="answer in answers">
+            <h5>{{answer}}</h5>
+          </li>
+        </ul>
+      
 
 
 
