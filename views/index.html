@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="busuuApp">
 
 <head>
   <meta charset="utf8">
@@ -39,7 +39,7 @@
 
 
       <ul>
-        <li ng-repeat="word in words" | filter: >
+        <li ng-repeat="word in words track by $value">
           <span>{{word}}</span>
         </li>
       </ul>
