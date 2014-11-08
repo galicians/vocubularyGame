@@ -5,12 +5,18 @@
 var busuuControllers = angular.module('busuuControllers', []);
 
 busuuControllers.controller('QuestionDisplayCtrl', ['$scope', 'Session', '$http', function($scope, Session, $http) {
-    $scope.session = new Session
+    
+    var session = new Session('spanish')
 
-    $http.get('js/words.json').success(function(data) {
-      $scope.session.words = data
+    session.getWords().then(function(){
+      $scope.words = session.words
+    }).then(function() {
+      $scope.number = session._generateRandNumber()
     })
- 
+    
+    
+
+    $scope.lan = session.learning
 
   
     

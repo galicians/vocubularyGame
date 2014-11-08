@@ -4,23 +4,32 @@
 var busuuServices = angular.module('busuuServices',[])
 
 
+busuuServices.factory('Session', [ '$http', function($http) {
 
-
-busuuServices.factory('Session', [ function() {
-
-  function Session(words,questions,roundAnswers,learning,mTongue,user,score,roundPoints) {
-    this.words 
+  var Session =  function(lang) {
+    this.words
     this.questions = []
     this.roundAnswers = []
-    this.learning
-    this.mTongue
+    this.learning = lang
+    this.mTongue 
     this.user
     this.score = []
     this.roundPoints
   }
 
+  Session.prototype.getWords = function() {
+     var self = this
+     return $http.get('js/words.json').then(function(response) {
+      self.words = response.data
+      return response
+    })
+  }
+
+
+
   Session.prototype._generateRandNumber =  function() {
-    var totalWords = this.words.length - 1
+    var self = this
+    var totalWords = self.words.length - 1
     return Math.floor(Math.random() * totalWords)
   }
 
