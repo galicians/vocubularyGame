@@ -7,27 +7,23 @@ describe('busuu controllers', function() {
   beforeEach(module('busuuServices'))
 
    describe('QuestionDisplayCtrl', function() {
-    var scope, ctrl, createSession
+    var scope, ctrl, createSession, Session
 
-      beforeEach(inject(function($rootScope, $controller,$injector) {
+      beforeEach(inject(function($rootScope, $controller,$injector,$http) {
         scope = $rootScope.$new()
         ctrl = $controller('QuestionDisplayCtrl', {$scope: scope})
         createSession = function() {
           return $injector.get('Session')
         }
+        Session = createSession()
       }))
 
 
-      it('should be defined', function() {
-        var session = createSession()
-        expect(session).toBeTruthy();
+      it('the session service should be available for testing the ctrl', function() {
+        expect(Session).toBeTruthy();
       })
 
-      // it("should be intialized with all the words", function() {
-      //   var session = new Session
-      //   session.getWords()
-      //   expect(scope.words.count()).toEqual(11)
-      // })
+    
 
    })
 
