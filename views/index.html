@@ -46,28 +46,33 @@
      
 
     
-        <form name="userForm">
+        <form name="formData" novalidate>
          <div class="form-group" ng-repeat="answer in answers">
           <div class="radio">
-            
-              <label><input type="radio" value="{{answer}}" name="formData.userResponse" ng-model="formData.userResponse">  {{answer}}</label>
-            </div>
-           </div> 
-         
-            
-            
-       
-      
-        <button type="submit" class="btn btn-danger btn-lg">SUBMIT ANSWER!</button>
+              <label><input type="radio" value={{answer}} name="userResponse" ng-model="formData.userResponse">  {{answer}}</label>
+          </div>
+         </div> 
+         <button type="submit" class="btn btn-danger btn-lg">SUBMIT ANSWER!</button>
+         </form>   
+              
 
-  
-  </div>
+
+
+
+
+
+
+
+       <h2>Response</h2>
+    <pre>
+        {{ formData }}
+    </pre>
+
 
    <footer class="text-center">
     <hr />
       <p>View the <a href="https://github.com/galicians/vocubularyGame/blob/master/README.md">README</a> by <a href="https://github.com/galicians">galicians</a></p>
-      <h4>Other Angular Projects</h4>
-      <p><a href="https://github.com/galicians/jobPostingApp">Job posting App</a></p>
+      <h4>Angular Project</h4>
   </footer>
   <div>
   <script src="/bower_components/angular/angular.js"></script>
