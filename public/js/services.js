@@ -85,7 +85,7 @@ busuuServices.factory('Session', [ '$http', function($http) {
 
   Session.prototype.isUserResponseCorrect = function(userAnswer){
     var self = this
-    return userAnswer == self.correctResponse()
+    return self.correctResponse() == userAnswer
   }
 
   Session.prototype.updateScore = function(userAnswer) {

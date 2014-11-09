@@ -21,7 +21,7 @@ No need to use any database persistence on server-side - keeping data in NodeJS 
     
     npm start / nodemon app.js / node app.js  (The 3 options are valid)
 
-    then go to [http://localhost:3000](http://localhost:3000) 
+    then go to [http://localhost:3000] 
 
 
 ### Testing the app:   
@@ -49,7 +49,7 @@ The goals for this challenge are:
 - Comments on performance and architecture decisions
 
 
-## Directory Layout(not ud to date)
+## Directory Layout(not up to date)
     
     app.js              --> app config
     package.json        --> for npm
