@@ -14,10 +14,9 @@ busuuControllers.controller('QuestionDisplayCtrl', ['$scope', 'Session', '$http'
       newRound()
     }).then(function() {
       $scope.submitAnswer = function() {
-        $scope.formData.userResponse 
         $scope.isResponded = true
         $scope.correct = session.correctResponse()
-        if( $scope.correct != $scope.formData.userResponse || $scope.round == 3 ) endGame()
+        // if( $scope.correct != $scope.formData.userResponse || $scope.round == 3 ) endGame()
         } 
     }).then(function() {
       $scope.nextQuestion = function() {
