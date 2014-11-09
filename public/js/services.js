@@ -13,7 +13,7 @@ busuuServices.factory('Session', [ '$http', function($http) {
     this.learning = lang
     this.mTongue ="en"
     this.user = "user"
-    this.score = []
+    this.score = [0]
     this.roundPoints
   }
 
@@ -95,6 +95,12 @@ busuuServices.factory('Session', [ '$http', function($http) {
   Session.prototype.getKeyphrase = function(){
     var self = this
     return self.currentQuestion().def
+  }
+
+
+  Session.prototype.currentPoints = function(){
+    var self = this
+    return self.score.reduce( function(previous, current) { return previous + current } )
   }
 
   function shuffle(array) {

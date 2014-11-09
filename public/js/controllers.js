@@ -18,11 +18,31 @@ busuuControllers.controller('QuestionDisplayCtrl', ['$scope', 'Session', '$http'
       $scope.round = session.currentRound()
       session.generateAnswers(3)
       $scope.answers = session.roundAnswers
+      $scope.points = session.currentPoints()
+      $scope.formData = {};
+      $scope.isResponded = false
+    }).then(function() {
+      $scope.submitAnswer = function() {
+        $scope.formData.userResponse 
+        $scope.isResponded = true
+        $scope.correct = session.correctResponse()
+
+      }
+
+     
     })
-    
 
-     $scope.formData = {};
+     
 
+
+
+     // $scope.submitAnswer() {
+     //  //will indicate if the answer is correct and will show the correct answer
+     //  //if you choose the right question --> will display next question buttom
+     //  //wrong answer the game ends
+
+
+  
   
     
 

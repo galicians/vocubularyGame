@@ -40,10 +40,15 @@
 
       <h3>Welcome {{user}}, we can see you are learning [{{learning}}].</h3>
       <hr/ >
-        <h4>{{round}} round:<h4>
+          <h3>Current Stats:</h3>
+          <pre>
+              <span>Round: {{ round }} </span> <span> Points: {{ points }}</span>
+              
+          </pre>
+          
+
           <br />
         <h4>{{question.def}}</h4>
-     
 
     
         <form name="formData" novalidate>
@@ -52,28 +57,23 @@
               <label><input type="radio" value={{answer}} name="userResponse" ng-model="formData.userResponse">  {{answer}}</label>
           </div>
          </div> 
-         <button type="submit" class="btn btn-danger btn-lg">SUBMIT ANSWER!</button>
+         <button ng-hide="isResponded" type="submit" ng-click="submitAnswer()" class="btn btn-danger btn-lg">Submit Answer!</button>
+          <button ng-show="isResponded"  type="submit" ng-click="nextQuestion()" class="btn btn-danger btn-lg">Next Question!</button>
          </form>   
-              
 
-
-
-
-
-
-
-
-       <h2>Response</h2>
+       <h3>Response</h3>
     <pre>
-        {{ formData }}
+        <h5 class="text-left" ng-hide="isResponded">{{ formData.userResponse }}</h5>
+        <h5 class="text-left" ng-show="isResponded">you choose {{ formData.userResponse }} and the correct answer is: {{ correct }}</h5>
     </pre>
 
 
    <footer class="text-center">
     <hr />
-      <p>View the <a href="https://github.com/galicians/vocubularyGame/blob/master/README.md">README</a> by <a href="https://github.com/galicians">galicians</a></p>
+      <p>View the <a href="https://github.com/galicians/vocubularyGame/blob/master/README.md">README</a> by 
+      <a href="https://github.com/galicians">galicians</a></p>
       <h4>Angular Project</h4>
-  </footer>
+    </footer>
   <div>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-route/angular-route.js"></script>
