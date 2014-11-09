@@ -19,13 +19,17 @@ describe('busuuApp', function() {
     })
 
     it("should display the submit button", function() {
-      var submit = element(by.id('submitAnswer'))
-      expect(submit).toBeDefined()
+      expect(element(by.id('submitAnswer'))).toBeDefined()
+    })
+
+    it("should display the button next question when users submits response", function() {
+      expect(element(by.id('nextQuestion')).isDisplayed()).toBeFalsy();     
+      element(by.id('submitAnswer')).click()
+      expect(element(by.id('nextQuestion')).isDisplayed()).toBeTruthy();
     })
 
 
 
+
   })
-
-
 })
