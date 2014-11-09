@@ -21,7 +21,7 @@ busuuControllers.controller('QuestionDisplayCtrl', ['$scope', 'Session', '$http'
     })
     
 
-  
+     $scope.formData = {};
 
   
     

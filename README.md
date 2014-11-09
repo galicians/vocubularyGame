@@ -10,8 +10,7 @@ You will find 11 words with keyphrases and spanish translation hardcoded in word
 
 1. On every round one random word is chosen - question asked to the player. We show player english word with english keyphrase.  
 2. We also provide 3 answers - shown to user in Spanish - chosen randomly from 11 words provided (one of them is translation of previously randomly chosen word).   
-3. The game consists of 3 rounds. If
-the user chooses the wrong answer the game is finished.
+3. The game consists of 3 rounds. If the user chooses the wrong answer the game is finished.
 4. When the game is finished the
  user can enter his name. If he does, the score is sent to the server, and will appear on "High score" subpage of the app. This subpage will download highscore list, using $http AngularJS service.
 
