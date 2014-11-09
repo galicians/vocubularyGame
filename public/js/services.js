@@ -14,7 +14,7 @@ busuuServices.factory('Session', [ '$http', function($http) {
     this.mTongue ="en"
     this.user = "user"
     this.score = [0]
-    this.roundPoints
+    this.roundPoints = 8
   }
 
   Session.prototype.getWords = function() {
@@ -68,6 +68,7 @@ busuuServices.factory('Session', [ '$http', function($http) {
 
   Session.prototype.generateAnswers = function(num) {
     var self = this
+    self.roundAnswers =[]
      self.roundAnswers.push(self.correctResponse())
     for(var i = 0; i < num; i++){ self.roundAnswers.push(self.generateFakeAnswer()) }
   }
@@ -112,8 +113,6 @@ busuuServices.factory('Session', [ '$http', function($http) {
       }
       return array
   }
-
-
 
   return Session
 }])
