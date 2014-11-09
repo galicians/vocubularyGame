@@ -18,12 +18,16 @@ You will find 11 words with keyphrases and spanish translation hardcoded in word
 No need to use any database persistence on server-side - keeping data in NodeJS memory is sufficient for this test._
 
 ### Running the app
+    
+    npm start / nodemon app.js / node app.js  (The 3 options are valid)
 
-    npm install
-    bower install
-    nodemon app.js
+    then go to [http://localhost:3000](http://localhost:3000) 
 
-then go to [http://localhost:3000](http://localhost:3000) 
+
+### Testing the app:   
+
+    npm test                            (unit tests)
+    protractor protractor-conf.js       (end to end tests)
 
 
 ### Functionality:
@@ -45,7 +49,7 @@ The goals for this challenge are:
 - Comments on performance and architecture decisions
 
 
-## Directory Layout
+## Directory Layout(not ud to date)
     
     app.js              --> app config
     package.json        --> for npm
